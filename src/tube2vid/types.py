@@ -73,17 +73,6 @@ class PlatformHealthRow(TypedDict):
     repaired: NotRequired[bool]
 
 
-class RecentDownload(TypedDict):
-    platform: str
-    title: NotRequired[str]
-    sourceUrl: NotRequired[str]
-    mode: str
-    format: str
-    status: str
-    thumbnailUrl: NotRequired[str]
-    createdAt: str
-
-
 class JobEvent(TypedDict):
     id: str
     jobId: str

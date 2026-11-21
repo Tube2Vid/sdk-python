@@ -58,7 +58,7 @@ with client.download_job(job_id) as response, open("video.mp4", "wb") as out:
 | `list_api_keys()` / `create_api_key(input)` | `/v1/api-keys` |
 | `create_checkout(input)` | `POST /v1/billing/checkout` |
 | `list_platforms()` / `get_platform_health()` / `get_status_history(limit, platform)` | public, no key |
-| `get_health()` / `get_operational_metrics()` / `get_recent_downloads(limit)` | public, no key |
+| `get_health()` / `get_operational_metrics()` | public, no key |
 
 Responses are plain dicts typed with `TypedDict` (see `tube2vid.types`), so keys match the [API docs](https://tube2vid.com/docs) exactly.
 

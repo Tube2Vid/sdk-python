@@ -77,9 +77,6 @@ class Tube2VidClient:
     def get_platform_health(self) -> list[t.PlatformHealthRow]:
         return self._get("/v1/platforms/health")
 
-    def get_recent_downloads(self, limit: int = 18) -> list[t.RecentDownload]:
-        return self._get(f"/v1/public/recent-downloads?{urllib.parse.urlencode({'limit': limit})}")
-
     def get_status_history(self, limit: int = 50, platform: Optional[str] = None) -> list[t.StatusHistoryItem]:
         query: dict[str, Any] = {"limit": limit}
         if platform:
