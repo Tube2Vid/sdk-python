@@ -11,7 +11,7 @@ from typing import Any, Callable, Optional, cast
 
 from . import types as t
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 DEFAULT_BASE_URL = "https://tube2vid.com"
 
 
@@ -30,7 +30,7 @@ class Tube2VidApiError(Exception):
         self.status = status
         #: Raw response body, if any.
         self.body: Optional[str] = body or None
-        #: Machine-readable error code when the API sent one (e.g. "turnstile_failed").
+        #: Machine-readable error code when the API sent one (e.g. "captcha_failed").
         self.code: Optional[str] = fields.get("code") if isinstance(fields.get("code"), str) else None
         #: Parsed JSON body, if the body was JSON.
         self.data: Any = data
@@ -86,11 +86,8 @@ class Tube2VidClient:
     def get_operational_metrics(self) -> t.OperationalMetrics:
         return self._get("/v1/ops/metrics")
 
-    def get_pow_challenge(self) -> t.PowChallenge:
-        return self._get("/v1/challenges/pow")
-
     def submit_public_job(self, input: t.JobSubmitInput) -> t.QueuedJobResponse:
-        """Anonymous submission, as the website does it. Requires ``pow`` (and ``turnstileToken`` where the human check is on)."""
+        """Anonymous submission, as the website does it. Requires a solved Atlas ``captchaToken``; scripts should use ``submit_job`` with an API key."""
         return self._post("/v1/public/jobs", input)
 
     def get_public_job_status(self, job_id: str) -> t.PublicJobStatus:

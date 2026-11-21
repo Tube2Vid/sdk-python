@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tube2vid"
-version = "0.1.0"
+version = "0.2.0"
 description = "Official Python SDK for the Tube2Vid video downloader API: download YouTube, TikTok, Instagram and 1,800+ sites."
 readme = "README.md"
 requires-python = ">=3.11"

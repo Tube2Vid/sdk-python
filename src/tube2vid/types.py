@@ -13,22 +13,14 @@ PlatformStatusValue = Literal["operational", "degraded", "partial_outage", "down
 ApiKeyScope = Literal["jobs:write", "jobs:read", "usage:read", "keys:read", "keys:write", "billing:write"]
 
 
-class ProofOfWork(TypedDict):
-    nonce: str
-    expiresAt: str
-    difficulty: int
-    signature: str
-    solution: str
-
-
 class JobSubmitInput(TypedDict):
     url: str
     platform: NotRequired[str]
     mode: NotRequired[JobMode]
     format: NotRequired[str]
     quality: NotRequired[str]
-    turnstileToken: NotRequired[str]
-    pow: NotRequired[ProofOfWork]
+    #: Browser flow only: an Atlas captcha token (``atlas1.…``) for the action "download".
+    captchaToken: NotRequired[str]
 
 
 class QueuedJobResponse(TypedDict):
@@ -180,12 +172,6 @@ class ServiceHealth(TypedDict):
     service: str
     time: str
 
-
-class PowChallenge(TypedDict):
-    nonce: str
-    expiresAt: str
-    difficulty: int
-    signature: str
 
 
 class ApiKeyCreateInput(TypedDict):
