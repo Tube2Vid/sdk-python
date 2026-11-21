@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tube2vid"
+version = "0.1.0"
+description = "Official Python SDK for the Tube2Vid video downloader API: download YouTube, TikTok, Instagram and 1,800+ sites."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Tube2Vid" }]
+keywords = [
+  "tube2vid", "video downloader", "youtube downloader", "tiktok downloader", "instagram downloader",
+  "youtube api", "media download", "mp3", "mp4", "api client", "sdk",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Multimedia :: Video",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://tube2vid.com"
+Documentation = "https://tube2vid.com/docs"
+Repository = "https://github.com/Tube2Vid/sdk-python"
+Issues = "https://github.com/Tube2Vid/sdk-python/issues"
+Changelog = "https://github.com/Tube2Vid/sdk-python/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tube2vid"]
